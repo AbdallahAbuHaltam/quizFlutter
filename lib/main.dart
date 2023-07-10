@@ -38,11 +38,13 @@ class ExamPage extends StatefulWidget {
 
 class _ExamPageState extends State<ExamPage> {
   List<Widget> answerResult = [];
+  int rightAnswer=0;
 
   void checkAnswer(bool whatUserPicked) {
     setState(() {
       bool? correctAnswer = appBrain.getQuestionAnswer();
       if (whatUserPicked == correctAnswer) {
+        rightAnswer++;
         answerResult.add(const Padding(
           padding: EdgeInsets.all(3.0),
           child: Icon(
